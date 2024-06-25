@@ -1,31 +1,37 @@
 #include <bits/stdc++.h>
-#define lld long long int
-
 using namespace std;
 
-
-
-string wordCount(string str){
-	for (int i = 0; i < str.length(); ++i)
-	{
-		if (str[i] == ' ')
-		{
-			/* code */
-		}
-	}
+void reverseString(const string& str) {
+    string reversed = str;
+    reverse(reversed.begin(), reversed.end());
+    cout << reversed << " ";
 }
 
-int32_t main(){
-    ios_base :: sync_with_stdio(false);
+void separateWord(const string& str) {
+    stringstream ss(str);
+    string word;
+
+    while (ss >> word) {
+        reverseString(word);
+    }
+}
+
+int32_t main() {
+    ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
     int16_t T;
-    string str;
-    cin >> str;
+    cin >> T;
+    cin.ignore(10, '\n');
 
-    reverse(str.begin(), str.end());
-    cout << str;
+    while(T--){
+    	string str;
+	    getline(cin, str);
 
-  
+	    separateWord(str);
+	    cout<<endl;
+    }
+
+    return 0;
 }
